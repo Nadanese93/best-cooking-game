@@ -1,0 +1,495 @@
+/* kitchen.css — all styles for Mie Kilat. Warm street-cart palette,
+   big text everywhere: headlines 30px+, HUD numbers 28px+, tickets 16px+. */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #2b1a12;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #fff7e8;
+}
+
+#app {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 12px 16px 24px;
+}
+
+.hidden { display: none !important; }
+
+/* --- HUD ------------------------------------------------------------ */
+
+#hud {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: #7a2e0e;
+  border: 3px solid #ffb347;
+  border-radius: 14px;
+  padding: 10px 14px;
+}
+
+.brand {
+  font-size: 34px;
+  font-weight: bold;
+  color: #ffd94d;
+  line-height: 1;
+  align-self: center;
+  margin-right: 6px;
+  text-shadow: 2px 2px 0 #4a1500;
+}
+
+.brand small {
+  display: block;
+  font-size: 15px;
+  color: #ffe9c4;
+  letter-spacing: 3px;
+}
+
+.hud-item {
+  background: #4a1500;
+  border-radius: 10px;
+  padding: 6px 14px;
+  text-align: center;
+  min-width: 96px;
+}
+
+.hud-label {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #ffb347;
+}
+
+.hud-item b {
+  font-size: 30px;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.hud-item.combo-hot { background: #b35400; }
+.hud-item.combo-hot b { color: #ffe14d; }
+#hud-time.urgent { color: #ff5a3c; }
+
+.hud-btn {
+  margin-left: auto;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  color: #4a1500;
+  background: #ffd94d;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.hud-btn:hover { background: #ffe14d; }
+
+#hint-bar {
+  margin: 10px 2px 0;
+  font-size: 19px;
+  color: #ffe9c4;
+  min-height: 26px;
+}
+
+#rush-banner {
+  margin: 8px 2px 0;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  background: #e33f2f;
+  border: 3px solid #ffd94d;
+  border-radius: 12px;
+  padding: 8px 12px;
+  animation: rushpulse 0.7s infinite alternate;
+}
+
+@keyframes rushpulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.02); }
+}
+
+/* --- Order board ----------------------------------------------------- */
+
+#board {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  min-height: 132px;
+}
+
+.board-empty {
+  font-size: 20px;
+  color: #ffb347;
+  align-self: center;
+}
+
+.ticket {
+  flex: 1;
+  background: #fff7e8;
+  color: #2b1a12;
+  border: 3px solid #d8c49a;
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.ticket.selected { border-color: #e33f2f; box-shadow: 0 0 0 3px #e33f2f; }
+.ticket.match { background: #e6ffd6; border-color: #4caf50; }
+
+.ticket-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.ticket-num { font-size: 18px; font-weight: bold; }
+
+.ticket-serve {
+  font-size: 14px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.ticket-toppings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+  min-height: 34px;
+}
+
+.chip {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 16px;
+  padding: 5px 12px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.chip-noodles { background: #f7c948; color: #5a3a00; }
+
+.patience {
+  height: 14px;
+  background: #e0d3b8;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.patience-fill { height: 100%; }
+.patience-good { background: #4caf50; }
+.patience-warn { background: #ff9800; }
+.patience-bad { background: #e33f2f; }
+
+.patience-label { font-size: 14px; color: #6b4a2a; margin-top: 4px; }
+
+/* --- Kitchen row: pot, chopping board, bowl -------------------------- */
+
+#kitchen {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.kitchen-panel {
+  flex: 1;
+  background: #5a2d16;
+  border: 3px solid #ffb347;
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.kitchen-panel h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: #ffd94d;
+}
+
+#pot .pot-body {
+  width: 150px;
+  height: 90px;
+  margin: 0 auto;
+  background: #3a3f4a;
+  border: 4px solid #c8ccd4;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+#pot .pot-body::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 8px;
+  height: 34px;
+  background: repeating-radial-gradient(circle at 50% 50%, #f7c948 0 6px, #e8a93c 6px 12px);
+  border-radius: 50%;
+}
+
+.pot-timer {
+  position: relative;
+  height: 20px;
+  background: #2b1a12;
+  border-radius: 10px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.pot-green {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: #4caf50;
+}
+
+.pot-marker {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  width: 6px;
+  margin-left: -3px;
+  background: #ffffff;
+  border: 1px solid #000;
+}
+
+.pot-label { font-size: 18px; font-weight: bold; margin-top: 10px; min-height: 24px; }
+.pot-cooking .pot-body::before { animation: bubble 0.6s infinite alternate; }
+.pot-burnt .pot-body::before { background: #1c1c1c; }
+
+@keyframes bubble {
+  from { transform: translateY(0); }
+  to { transform: translateY(-3px); }
+}
+
+#chopping-board .board-body {
+  width: 150px;
+  height: 90px;
+  margin: 0 auto;
+  background: #c89b6a;
+  border: 4px solid #8d5a2b;
+  border-radius: 10px;
+  position: relative;
+}
+
+#chopping-board.busy .board-body { background: #e8c48a; }
+.board-label { font-size: 18px; font-weight: bold; margin-top: 10px; min-height: 24px; }
+.board-chops { font-size: 16px; color: #ffe9c4; min-height: 22px; }
+
+#bowl-area { cursor: pointer; }
+
+#bowl .bowl-body {
+  width: 170px;
+  height: 80px;
+  margin: 0 auto;
+  background: #b33a2b;
+  border: 4px solid #7a2418;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+#bowl .bowl-body::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 6px;
+  height: 30px;
+  background: repeating-radial-gradient(circle at 50% 50%, #f7c948 0 5px, #e8a93c 5px 10px);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+#bowl.has-noodles .bowl-body::before { opacity: 1; }
+
+#bowl-contents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  min-height: 40px;
+  margin-top: 10px;
+}
+
+.bowl-empty { font-size: 15px; color: #e8cfa8; }
+
+.bowl-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 8px; }
+
+.big-btn {
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 22px;
+  cursor: pointer;
+}
+
+#serve-btn { background: #4caf50; color: #ffffff; }
+#serve-btn.ready { background: #2e7d32; box-shadow: 0 0 0 3px #ffe14d; }
+#toss-btn { background: #8d5a2b; color: #ffffff; }
+
+/* --- Ready tray ------------------------------------------------------- */
+
+#tray {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: #4a1500;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-top: 12px;
+  min-height: 56px;
+}
+
+.tray-label { font-size: 17px; font-weight: bold; color: #ffb347; }
+.tray-empty { font-size: 17px; color: #e8cfa8; }
+.tray-chip { font-size: 17px; background: #fff7e8; color: #2b1a12; }
+
+/* --- Counter: ingredient stations ------------------------------------- */
+
+#counter {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.station {
+  flex: 1;
+  font-family: inherit;
+  background: #fff7e8;
+  color: #2b1a12;
+  border: 3px solid #d8c49a;
+  border-radius: 12px;
+  padding: 10px 6px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.station:hover { border-color: #e33f2f; }
+
+.station-key {
+  display: inline-block;
+  background: #2b1a12;
+  color: #ffd94d;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.station-swatch {
+  display: block;
+  width: 44px;
+  height: 44px;
+  margin: 8px auto 6px;
+  line-height: 44px;
+  font-size: 26px;
+  font-weight: bold;
+  border-radius: 50%;
+  background: var(--swatch, #f7c948);
+  color: var(--swatch-text, #5a3a00);
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.station-noodles .station-swatch { background: #f7c948; color: #5a3a00; }
+
+.station-name { display: block; font-size: 19px; font-weight: bold; }
+.station-note { display: block; font-size: 13px; color: #6b4a2a; margin-top: 2px; }
+
+/* --- Full-screen overlays ---------------------------------------------- */
+
+.screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(43, 26, 18, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.screen-card {
+  background: #fff7e8;
+  color: #2b1a12;
+  border: 4px solid #ffb347;
+  border-radius: 20px;
+  padding: 32px 44px;
+  text-align: center;
+  max-width: 640px;
+}
+
+.screen-card h1 {
+  margin: 0;
+  font-size: 52px;
+  color: #b33a2b;
+  line-height: 1.05;
+}
+
+.screen-card h2 {
+  margin: 0;
+  font-size: 40px;
+  color: #b33a2b;
+}
+
+.screen-card .tagline {
+  font-size: 20px;
+  margin: 14px 0;
+  line-height: 1.5;
+}
+
+.screen-card .howto {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #4a2c14;
+  text-align: left;
+}
+
+.screen-stats {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin: 18px 0;
+}
+
+.screen-stats .stat {
+  background: #4a1500;
+  color: #ffe9c4;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 16px;
+}
+
+.screen-stats .stat b {
+  display: block;
+  font-size: 32px;
+  color: #ffd94d;
+}
+
+#start-btn, #again-btn, #retry-btn {
+  font-size: 28px;
+  padding: 14px 44px;
+  background: #e33f2f;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+#start-btn:hover, #again-btn:hover, #retry-btn:hover { background: #b33a2b; }
+
+.screen-card .keys {
+  font-size: 15px;
+  color: #6b4a2a;
+  margin-top: 16px;
+}
