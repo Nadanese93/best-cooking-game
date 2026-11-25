@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mie Kilat — Noodle Rush</title>
+<link rel="stylesheet" href="css/kitchen.css">
+</head>
+<body>
+<div id="app">
+  <header id="hud">
+    <div class="brand">MIE KILAT<small>NOODLE RUSH</small></div>
+    <div class="hud-item"><span class="hud-label">COINS</span><b id="hud-coins">0</b></div>
+    <div class="hud-item"><span class="hud-label">TIME</span><b id="hud-time">2:30</b></div>
+    <div class="hud-item"><span class="hud-label">TARGET</span><b id="hud-target">0 / 120</b></div>
+    <div class="hud-item"><span class="hud-label">FAILED</span><b id="hud-failed">0/3</b></div>
+    <div class="hud-item"><span class="hud-label">COMBO</span><b id="hud-combo">x1</b></div>
+    <div class="hud-item"><span class="hud-label">SERVED</span><b id="hud-served">0</b></div>
+    <button class="hud-btn" id="mute-btn" data-action="mute">SOUND ON</button>
+    <button class="hud-btn" id="restart-btn" data-action="restart">RESTART (R)</button>
+  </header>
+
+  <div id="hint-bar">Welcome to the noodle cart!</div>
+  <div id="rush-banner" class="hidden">RUSH HOUR — orders flooding in, speed tips DOUBLED!</div>
+
+  <section id="board" aria-label="Order board"></section>
+
+  <main id="kitchen">
+    <div class="kitchen-panel" id="pot" data-action="pot">
+      <h2>THE POT</h2>
+      <div class="pot-body"></div>
+      <div class="pot-timer"><div class="pot-green"></div><div class="pot-marker"></div></div>
+      <div class="pot-label">EMPTY POT</div>
+    </div>
+
+    <div class="kitchen-panel" id="chopping-board" data-action="board">
+      <h2>CHOPPING BOARD</h2>
+      <div class="board-body"></div>
+      <div class="board-label">CHOPPING BOARD — empty</div>
+      <div class="board-chops">Click CHICKEN or GREENS to chop</div>
+    </div>
+
+    <div class="kitchen-panel" id="bowl-area" data-action="bowl">
+      <h2>YOUR BOWL</h2>
+      <div id="bowl"><div class="bowl-body"></div></div>
+      <div id="bowl-contents"></div>
+      <div class="bowl-buttons">
+        <button class="big-btn" id="serve-btn" data-action="serve">SERVE</button>
+        <button class="big-btn" id="toss-btn" data-action="toss">TOSS</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="tray" aria-label="Ready tray"></div>
+
+  <section id="counter" aria-label="Ingredient stations"></section>
+</div>
+
+<div class="screen" id="screen-title">
+  <div class="screen-card">
+    <h1>MIE KILAT</h1>
+    <p class="tagline"><b>Noodle Rush</b> — run the busiest street noodle cart in town!</p>
+    <p class="howto">Cook noodles in the pot and click it in the <b>green zone</b>. Chop what needs chopping, build each bowl to match its ticket, and <b>SERVE</b> before patience runs out. Earn <b>120 coins</b> in 150 seconds — 3 failed orders and the shift is over. Last 30 seconds: <b>RUSH HOUR</b> — orders flood in and speed tips double!</p>
+    <button class="big-btn" id="start-btn" data-action="start">START SHIFT</button>
+    <p class="keys">Mouse: click stations, pot, board and bowl &nbsp;·&nbsp; Keys 1–7: stations &nbsp;·&nbsp; Space: serve &nbsp;·&nbsp; R: restart &nbsp;·&nbsp; M: mute</p>
+  </div>
+</div>
+
+<div class="screen hidden" id="screen-win">
+  <div class="screen-card">
+    <h2>SHIFT COMPLETE!</h2>
+    <p class="tagline">The cart is famous — every bowl sold, every customer happy.</p>
+    <div class="screen-stats">
+      <div class="stat">COINS<b id="win-coins">0</b></div>
+      <div class="stat">BEST COMBO<b id="win-combo">x1</b></div>
+      <div class="stat">SERVED<b id="win-served">0</b></div>
+    </div>
+    <button class="big-btn" id="again-btn" data-action="again">PLAY AGAIN</button>
+  </div>
+</div>
+
+<div class="screen hidden" id="screen-lose">
+  <div class="screen-card">
+    <h2>SHIFT OVER</h2>
+    <p class="tagline" id="lose-reason">The shift ended.</p>
+    <div class="screen-stats">
+      <div class="stat">COINS<b id="lose-coins">0</b></div>
+      <div class="stat">SERVED<b id="lose-served">0</b></div>
+    </div>
+    <button class="big-btn" id="retry-btn" data-action="retry">RETRY SHIFT</button>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
